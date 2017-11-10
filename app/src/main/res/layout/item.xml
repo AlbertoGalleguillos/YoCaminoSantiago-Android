@@ -10,8 +10,8 @@
 
     <ImageView
         android:id="@+id/iv_photoUrl"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
         android:layout_gravity="center"
         android:src="@mipmap/ic_launcher"/>
 
@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:paddingLeft="16dp">
+        android:paddingLeft="8dp">
 
         <TextView
             android:id="@+id/tv_name"
@@ -35,24 +35,36 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-        <TextView
-            android:id="@+id/tv_duration"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="14sp"
-            android:text="20 - 30 minutos"
-            android:layout_weight="1" />
+            <TextView
+                android:id="@+id/tv_duration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:text="20 - 30 minutos"
+                android:layout_weight="1" />
 
-        <TextView
-            android:id="@+id/tv_distance"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="5 Km"
-            android:textSize="14sp"
-            android:layout_weight="1"
+            <TextView
+                android:id="@+id/tv_distance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="5 Km"
+                android:textSize="14sp"
+                android:layout_weight="1"
             android:gravity="right"/>
 
+            <TextView
+                android:id="@+id/tv_latitude"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:id="@+id/tv_longitude"
+                android:visibility="gone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

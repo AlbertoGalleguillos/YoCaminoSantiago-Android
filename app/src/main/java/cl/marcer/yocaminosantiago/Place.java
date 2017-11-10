@@ -9,16 +9,21 @@ public class Place {
     private String name;
     private String duration;
     private String distance;
+    private Double lat;
+    private Double lng;
 
     public Place() {
-        //Firebase
+        // Needed for Firebase
     }
 
-    public Place(String photoUrl, String name, String duration, String distance) {
+    public Place(String photoUrl, String name, String duration, String distance, Double lat, Double lng) {
+
         this.photoUrl = photoUrl;
         this.name = name;
         this.duration = duration;
         this.distance = distance;
+        this.lat = lat;
+        this.lng = lng;
     }
 
     public String getPhotoUrl() {
@@ -52,4 +57,21 @@ public class Place {
     public void setDistance(String distance) {
         this.distance = distance;
     }
+
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
+    }
+
+    public Double getLng() {
+        return lng;
+    }
+
+    public void setLng(Double lng) {
+        this.lng = lng;
+    }
+
 }

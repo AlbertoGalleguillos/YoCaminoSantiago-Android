@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         Query query = placeRef.limitToLast(50);
-
         FirebaseRecyclerOptions<Place> options = new FirebaseRecyclerOptions.Builder<Place>().setQuery(query, Place.class).build();
 
         adapter = new FirebaseRecyclerAdapter<Place, PlaceHolder>(options) {
@@ -40,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
                 holder.nameText.setText(model.getName());
                 holder.durationText.setText(model.getDuration());
                 holder.distanceText.setText(model.getDistance());
+                holder.latitudeText.setText(String.valueOf(model.getLat()));
+                holder.longitudeText.setText(String.valueOf(model.getLng()));
             }
 
             @Override
