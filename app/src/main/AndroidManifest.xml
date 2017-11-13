@@ -42,6 +42,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="cl.marcer.yocaminosantiago.MainActivity" />
         </activity>
+        <activity android:name=".PlaceActivity"></activity>
     </application>
 
 </manifest>

@@ -15,8 +15,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private String placeName;
-    private Double latitude;
-    private Double longitude;
+    private Double placeLatitude;
+    private Double placeLongitude;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,14 +25,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         Intent intent = getIntent();
         placeName = intent.getStringExtra(PlaceHolder.EXTRA_PLACE_NAME);
-        latitude = Double.valueOf(intent.getStringExtra(PlaceHolder.EXTRA_LATITUDE));
-        longitude = Double.valueOf(intent.getStringExtra(PlaceHolder.EXTRA_LONGITUDE));
+        placeLatitude = Double.valueOf(intent.getStringExtra(PlaceHolder.EXTRA_PLACE_LATITUDE));
+        placeLongitude = Double.valueOf(intent.getStringExtra(PlaceHolder.EXTRA_PLACE_LONGITUDE));
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-
 
     /**
      * Manipulates the map once available.
@@ -47,14 +46,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        //LatLng sydney = new LatLng(-34, 151);
-        //LatLng parqueMetropolitano = new LatLng(-33.4294229,-70.6361546);
-        //LatLng gam = new LatLng(-33.4392484,-70.6397805);
-        //LatLng barrioLastarria = new LatLng(-33.4383083, -70.6411109);
-        LatLng latLngPlace = new LatLng(latitude, longitude);
+        // Add a marker and move the camera
+        LatLng latLngPlace = new LatLng(placeLatitude, placeLongitude);
         mMap.addMarker(new MarkerOptions().position(latLngPlace).title(placeName));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLng(parqueMetropolitano));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLngPlace, 15));
     }
 }

@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView recyclerView = findViewById(R.id.rv_place);
+        final RecyclerView recyclerView = findViewById(R.id.rv_place);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -35,11 +35,16 @@ public class MainActivity extends AppCompatActivity {
         adapter = new FirebaseRecyclerAdapter<Place, PlaceHolder>(options) {
             @Override
             protected void onBindViewHolder(PlaceHolder holder, int position, Place model) {
+                // Populate Recycler View
+                int resID = getResources().getIdentifier(model.getPhotoUrl(), "drawable", getPackageName());
+                holder.placeImage.setImageResource(resID);
+
                 holder.nameText.setText(model.getName());
                 holder.durationText.setText(model.getDuration());
                 holder.distanceText.setText(model.getDistance());
                 holder.latitudeText.setText(String.valueOf(model.getLat()));
                 holder.longitudeText.setText(String.valueOf(model.getLng()));
+                holder.photoUrlText.setText(model.getPhotoUrl());
             }
 
             @Override

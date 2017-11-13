@@ -1,7 +1,7 @@
 package cl.marcer.yocaminosantiago;
 
 /**
- * Created by ubuntu on 09-11-17.
+ * Created by Alberto Galleguillos on 09-11-17.
  */
 
 public class Place {
